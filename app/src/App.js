@@ -5,12 +5,14 @@ import Display from './components/Display/Display';
 import Buttons from './components/Buttons/Buttons';
 
 class App extends Component {
-	state = {
-		balls: 0,
-		strikes: 0,
-		fouls: 0,
-		hits: 0
+	constructor(props){
+		super(props)
+		this.state = {
+			balls: 0,
+			strikes: 0,
+		}
 	}
+	
 	render() {
 		return (
 			<div className="App">
@@ -28,7 +30,7 @@ class App extends Component {
 				if(this.state.balls < 3){
 					this.setState((state) => {
 						return {
-							balls: ++ state.balls
+							balls: state.balls + 1
 						}
 					})	
 				} else {
@@ -42,7 +44,7 @@ class App extends Component {
 				if(this.state.strikes < 2){
 					this.setState((state) => {
 						return {
-							strikes: ++ state.strikes
+							strikes: state.strikes + 1
 						}
 					})	
 				} else {
@@ -56,7 +58,7 @@ class App extends Component {
 				if(this.state.strikes < 2){
 					this.setState((state) => {
 						return {
-							strikes:  ++ state.strikes
+							strikes:  state.strikes + 1
 						}
 					})
 				}

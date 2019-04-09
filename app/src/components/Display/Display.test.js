@@ -10,10 +10,11 @@ describe('<Display/>', () => {
         const {queryByText} = render(<Display/>)
         expect(queryByText(/Balls: 0 | Strikes: 0 /i)).not.toBeNull()
     });
-    afterEach(cleanup)
+    // afterEach(cleanup)
     it('renders `Balls: props.balls | Strikes: props.strikes` if balls and strikes props provided', () => {
-        const {getByTestId, queryByText, rerender} = render(<Display balls = {0} strikes = {0}/>)
-        expect(queryByText(/Balls: 0 | Strikes: 0 /i)).not.toBeNull()
+        const {getByTestId, rerender} = render(<Display balls = {0} strikes = {0}/>)
+        expect(getByTestId('balls-count').textContent).toBe('0')
+        expect(getByTestId('strikes-count').textContent).toBe('0')
 
         rerender(<Display balls = {1} strikes = {1}/>)
         expect(getByTestId('balls-count').textContent).toBe('1')
